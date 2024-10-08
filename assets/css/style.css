@@ -433,9 +433,11 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
-  padding-bottom: 4px;
+  gap: 20px;
+  padding-bottom: 10px;
   padding-left: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 20px; /* 增加底部邊距 */
 }
 
 .social-item .social-link {
