@@ -436,7 +436,6 @@ main {
   gap: 20px;
   padding-bottom: 10px;
   padding-left: 7px;
-  flex-wrap: wrap;
   margin-bottom: 20px; /* 增加底部邊距 */
 }
 
