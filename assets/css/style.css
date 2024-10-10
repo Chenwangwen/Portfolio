@@ -129,7 +129,7 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img, ion-icon, a, button, time, span { display: white; }
 
 button {
   font: inherit;
@@ -230,7 +230,7 @@ article.active {
 
 .h2 { font-size: var(--fs-1); }
 
-.h3 { font-size: var(--fs-2); }
+.h3 { font-size: var(--fs-4); }
 
 .h4 { font-size: var(--fs-4); }
 
@@ -628,6 +628,7 @@ main {
   z-index: 20;
   pointer-events: none;
   visibility: hidden;
+  max-width: 100%;
 }
 
 .modal-container::-webkit-scrollbar { display: none; }
@@ -820,15 +821,20 @@ main {
   left: -33px;
   height: 6px;
   width: 6px;
-  background: var(--text-gradient-yellow);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--jet);
+  background: var(--text-gradient-yellow); /* This color could be causing the dot */
+  border-radius: 50%; /* This makes it a circle */
+  box-shadow: 0 0 0 4px var(--jet); /* This adds the shadow to the dot */
 }
 
+
 .timeline-text {
-  color: var(--light-gray);
+  display: block; /* Ensures each span takes up its own line */
+  margin-bottom: 10px; /* Adds some space below each span */
+color: var(--white-2); /* Change this to the appropriate color you want */
   font-weight: var(--fw-300);
   line-height: 1.6;
+  text-align: justify;
+  width: 100%;
 }
 
 
@@ -941,11 +947,17 @@ main {
   margin-bottom: 10px;
 }
 
-.project-item { display: none; }
+.project-item { display: none; 
+  width: 100%; /* Ensures full width */
+  margin: 0 auto; /* Centers the block */
+  text-align: justify; /* Stretch the text across the width */}
 
 .project-item.active {
   display: block;
   animation: scaleUp 0.25s ease forwards;
+  width: 100%; /* This ensures the element takes the full width */
+  margin: 0 auto;
+  text-align: justify; /* Optional: ensures text stretches nicely */
 }
 
 @keyframes scaleUp {
@@ -1881,7 +1893,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 * RESUME
 	 */
 
-  .timeline-text { max-width: 700px; }
+  .timeline-text {     width: 100%; /* Stretch the text container to full width */
+    text-align: justify; /* Ensure text stretches nicely */
+    margin: 0 auto; /* Ensure it’s centered */}
 
 
   .navbar {
@@ -1912,6 +1926,28 @@ textarea.form-input::-webkit-resizer { display: none; }
   .navbar-link:hover {
     background-color: #575757; /* 增加懸停效果 */
   }
-  
-  
+
+    .photo-gallery {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .photo-gallery a {
+        flex: 0 0 auto;
+    }
+
+    .thumbnail {
+        width: 150x;  /* 設定縮略圖的寬度 */
+        height: 150px; /* 設定縮略圖的高度 */
+        object-fit: cover; /* 確保圖片保持相同比例裁剪 */
+        border-radius: 10px; /* 可選：讓圖片有些圓角效果 */
+        transition: transform 0.3s ease-in-out; /* 鼠標懸停效果 */
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.2); /* 當鼠標懸停時放大效果 */
+    }
+
 }
